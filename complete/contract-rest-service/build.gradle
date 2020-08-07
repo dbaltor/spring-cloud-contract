@@ -1,0 +1,90 @@
+buildscript {
+	ext { 
+		springBootVersion = '2.2.7.RELEASE'
+		springCloudVersion = 'Hoxton.SR6'
+		verifierVersion = '2.2.3.RELEASE'
+		pactVersion = '1.2.7.RELEASE'
+		//groovyVersion = '3.0.5'
+	}
+	repositories { 
+		mavenCentral()
+	}
+	dependencies { 
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") 
+		classpath "org.springframework.cloud:spring-cloud-contract-gradle-plugin:${verifierVersion}"
+		// PACT dependencies
+		classpath "org.springframework.cloud:spring-cloud-contract-spec-pact:${pactVersion}"
+        classpath 'au.com.dius:pact-jvm-model:2.4.18'
+	}
+}
+
+group = 'com.example'
+version = '1.0.0'
+
+apply plugin: 'maven-publish'
+//apply plugin: 'groovy'
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'spring-cloud-contract'
+
+
+/*bootJar {
+	baseName = 'contract-rest-service'
+	version = '0.0.1-SNAPSHOT'
+}*/
+sourceCompatibility = 11
+targetCompatibility = 11
+
+repositories { 
+	mavenCentral()
+	mavenLocal()
+ }
+
+/*publishing { 
+    publications {
+        stubs(MavenPublication) { 
+            groupId 'com.example'
+            artifactId "${bootJar.baseName}" 
+            version "${bootJar.version}"
+			artifact './build/libs/contract-rest-service-0.0.1-SNAPSHOT-stubs.jar'
+			//artifacts = [
+			//	"./build/libs/${artifactId}-${version}-stubs.jar",
+			//	"./build/libs/${artifactId}-${version}.jar"]
+            //artifact "./build/libs/${artifactId}-${version}-stubs.jar"
+			//from components.java
+            //artifact "./build/libs/${artifactId}-${version}.jar"
+        } 
+    } 
+}*/
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-web')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile('org.springframework.cloud:spring-cloud-contract-spec')
+	testCompile('org.springframework.cloud:spring-cloud-starter-contract-verifier')
+	//testCompile "org.codehaus.groovy:groovy-all:${groovyVersion}"
+	//Added to upgrade jaxb to 2.3+ and solve the error 
+	//'dependencyManagement.dependencies.dependency.systemPath' for com.sun:tools:jar must specify an absolute path but is ${tools.jar} in com.sun.xml.bind:jaxb-osgi:2.2.10
+	testCompile 'io.rest-assured:xml-path:4.2.0'
+
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testCompileOnly 'org.projectlombok:lombok'
+	testAnnotationProcessor 'org.projectlombok:lombok'
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
+}
+
+contracts {
+	baseClassForTests = 'hello.HelloBase' // fallback base class
+	// packageWithBaseClasses = 'hello' // fallback by convention to PersonServiceConsumerBase.class
+	/*baseClassMappings {
+		baseClassMapping(".*personServiceConsumer.*", "hello.HelloBase")
+		baseClassMapping(".*hellopact.*", "hello.HelloBase")
+	}*/
+}

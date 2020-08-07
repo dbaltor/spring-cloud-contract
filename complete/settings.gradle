@@ -1,0 +1,19 @@
+rootProject.name = 'gs-contract-rest'
+
+include 'contract-rest-service'
+include 'contract-rest-client'
+
+
+/*
+include 'service'
+include 'client'
+// change subproject names
+project(":service").name = "contract-rest-service"
+project(":client").name = "contract-rest-client"
+
+//Alternatively, you can use the desired project name in the include statement, and later reconfigure the project directory:
+
+include "contract-rest-service"
+project(":contract-rest-service").projectDir = file("service")
+*/
+
