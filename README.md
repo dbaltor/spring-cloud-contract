@@ -11,13 +11,17 @@ This approach is known as the <a href="https://microservices.io/patterns/testing
 <p/>
 <p/>
 <h2>Testing client and service locally:</h2>
-<br>
+<code>./build/gradle.sh</code><br>
+or
+<code>./build/mvn.sh</code><br>
+<p/>
+<p/>
+<h2>Testing client and service locally:</h2>
 <code>java -jar contract-rest-service/build/libs/contract-rest-service-1.0.0.jar</code><br>
 <code>java -jar contract-rest-client/build/libs/contract-rest-client-1.0.0.jar</code><br>
-<p/>
-URL:<br>
+<br>
+URLs:<br>
 ---<br>
-<p/>
 localhost:8080/message/1<br>
 localhost:8080/message/2<br>
 localhost:8080/message/3<br>
