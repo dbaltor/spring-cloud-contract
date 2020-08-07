@@ -10,7 +10,7 @@ This is required as the client build process requires them to run tests locally 
 This approach is known as the <a href="https://microservices.io/patterns/testing/service-component-test.html">Service Component Test pattern</a>.<br>
 <p/>
 <p/>
-<h2>Building service, stubs and clien:</h2>
+<h2>Building the service, its stub and the client:</h2>
 <code>./build/gradle.sh</code><br>
 or<br>
 <code>./build/mvn.sh</code><br>
