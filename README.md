@@ -12,7 +12,7 @@ This approach is known as the <a href="https://microservices.io/patterns/testing
 <p/>
 <h2>Testing client and service locally:</h2>
 <code>./build/gradle.sh</code><br>
-or
+or<br>
 <code>./build/mvn.sh</code><br>
 <p/>
 <p/>
