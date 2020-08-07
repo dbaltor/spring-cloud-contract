@@ -1,15 +1,16 @@
-# Example of Sprinc Cloud Contract #
+# Example of Spring Cloud Contract #
 <br>
-This simple demo aims to show the power of Spring Cloud Contract
+This simple demo aims to show the power of Spring Cloud Contract.
 <br>
 <br>
 <h2>Building the code</h2>
 <br>
 You can build both service and client using Gradle or Maven. The build process will build first the service and install the generated stubs on your maven local repo.<br>
-This is required as the client build process test the code using those stubs.<br>
+This is required as the client build process requires them to run tests locally using WireMock.<br>
+This approach is known as the <a href="https://microservices.io/patterns/testing/service-component-test.html">Service Component Test pattern</a>.<br>
 <p/>
 <p/>
-<h2>Testing locally:</h2>
+<h2>Testing client and service locally:</h2>
 <br>
 <code>java -jar contract-rest-service/build/libs/contract-rest-service-1.0.0.jar</code><br>
 <code>java -jar contract-rest-client/build/libs/contract-rest-client-1.0.0.jar</code><br>
