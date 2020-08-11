@@ -2,7 +2,6 @@ package hello;
 
 import lombok.NonNull;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.Getter;
 import lombok.EqualsAndHashCode;
