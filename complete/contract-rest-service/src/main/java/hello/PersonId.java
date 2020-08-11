@@ -2,9 +2,11 @@ package hello;
 
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 
-@Getter @RequiredArgsConstructor
+//@Getter @RequiredArgsConstructor
+@Data 
 public class PersonId {
-    private @NonNull Long id;    
+    private final @NonNull Long id;    
 }

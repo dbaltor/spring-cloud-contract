@@ -18,6 +18,9 @@ class MessageRestController {
 	@RequestMapping("/message/{personId}")
 	String getMessage(@PathVariable("personId") Long personId) {
 		Person person = this.restTemplate.getForObject("http://localhost:8000/persons/{personId}", Person.class, personId);
-		return "Hello " + person.getName();
+		if (person == null)
+			return String.format("No person with Id %d has been found.", personId);
+		else
+			return "Hello " + person.getName();
     }
 }
