@@ -59,14 +59,13 @@ repositories {
 }*/
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-web')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
-	testCompile('org.springframework.cloud:spring-cloud-contract-spec')
-	testCompile('org.springframework.cloud:spring-cloud-starter-contract-verifier')
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.cloud:spring-cloud-starter-contract-verifier'
 	//testCompile "org.codehaus.groovy:groovy-all:${groovyVersion}"
 	//Added to upgrade jaxb to 2.3+ and solve the error 
 	//'dependencyManagement.dependencies.dependency.systemPath' for com.sun:tools:jar must specify an absolute path but is ${tools.jar} in com.sun.xml.bind:jaxb-osgi:2.2.10
-	testCompile 'io.rest-assured:xml-path:4.2.0'
+	testImplementation 'io.rest-assured:xml-path:4.2.0'
 
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
