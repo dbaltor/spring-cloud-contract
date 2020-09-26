@@ -3,7 +3,7 @@ buildscript {
 		springBootVersion = '2.2.7.RELEASE'
 		springCloudVersion = 'Hoxton.SR6'
 		verifierVersion = '2.2.3.RELEASE'
-		pactVersion = '1.2.7.RELEASE'
+		//pactVersion = '1.2.7.RELEASE'
 		//groovyVersion = '3.0.5'
 	}
 	repositories { 
@@ -13,8 +13,9 @@ buildscript {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") 
 		classpath "org.springframework.cloud:spring-cloud-contract-gradle-plugin:${verifierVersion}"
 		// PACT dependencies
-		classpath "org.springframework.cloud:spring-cloud-contract-spec-pact:${pactVersion}"
-        classpath 'au.com.dius:pact-jvm-model:2.4.18'
+		classpath "org.springframework.cloud:spring-cloud-contract-pact:${verifierVersion}"
+		//classpath "org.springframework.cloud:spring-cloud-contract-spec-pact:${pactVersion}"
+        //classpath 'au.com.dius:pact-jvm-model:2.4.18'
 	}
 }
 
